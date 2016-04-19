@@ -14,6 +14,7 @@ var passport = require('passport');
 var secret = require('./config/secret');
 var User = require('./models/user');
 var Category = require('./models/category');
+var Brand = require('./models/brand');
 
 var cartLength = require('./middlewares/middlewares');
 

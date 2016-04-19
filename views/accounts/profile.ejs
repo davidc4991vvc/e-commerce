@@ -21,12 +21,14 @@
 	        <tr>
 	          <th>Item's Name</th>
 	          <th>Paid: </th>
+	          <th>Category </th>
 	        </tr>
 	        <tbody>
 	          <% for(var i = 0; i < user.history.length; i++) {%>
 	            <tr>
 	              <td><%= user.history[i].item.name %></td>
 	              <td><%= user.history[i].paid %></td>
+	              <td><%= (user.history[i].item.Category) %></td>
 	            </tr>
 	          <% } %>
 	        </tbody>
