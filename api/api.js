@@ -2,7 +2,6 @@ var router = require('express').Router();
 var async = require('async');
 var faker = require('faker');
 var Category = require('../models/category');
-var Brand = require('../models/brand');
 var Product = require('../models/product');
 
 
@@ -23,7 +22,6 @@ router.post('/', function(req, res, next) {
   });
 });
 
-
 router.post('/:name', function(req, res, next){
 	async.waterfall([
 		function(callback){
@@ -33,11 +31,14 @@ router.post('/:name', function(req, res, next){
 			});
 		},
 
+
+
 		function(category, callback){
 				var product = new Product();
 				product.category  = category._id;
 				product.name = req.body.name;
 				product.brand = req.body.brand;
+				product.supermarket = req.body.supermarket;
 				product.price = req.body.price;
 				product.description = req.body.description;
 				product.save();
