@@ -33,18 +33,11 @@ router.post('/:name', function(req, res, next){
 			});
 		},
 
-		function(callback){
-			Brand.findOne({ name: req.body.name }, function(err, brand){
-				if (err) return next(err);
-				callback(null, brand);
-			});
-		},
-
-		function(category, brand, callback){
+		function(category, callback){
 				var product = new Product();
 				product.category  = category._id;
 				product.name = req.body.name;
-				product.brand = brand._id;
+				product.brand = req.body.brand;
 				product.price = req.body.price;
 				product.description = req.body.description;
 				product.save();
