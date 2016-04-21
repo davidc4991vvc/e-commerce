@@ -18,6 +18,8 @@ var UserSchema = new mongoose.Schema({
 	},
 
 	address: String,
+	gender: String,
+	age: String,
 	history: [{
 		paid: { type: Number, default: 0},
 		item: { type: Schema.Types.ObjectId, ref: 'Product'}
