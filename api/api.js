@@ -41,6 +41,7 @@ router.post('/:name', function(req, res, next){
 				product.supermarket = req.body.supermarket;
 				product.price = req.body.price;
 				product.description = req.body.description;
+				product.image = req.body.image;
 				product.save();
 		}
 	]);

@@ -1,0 +1,49 @@
+<% layout('layout') -%>
+
+<div class="row">
+	<dir class="col-lg-6 col-md-offset-3">
+
+		<% if (message.length > 0) { %>
+			<div class="alert alert-success alert-dismissible">
+				<button type="button" class="close" data-dismmiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<%= message %>
+			</div>
+		<% } %>	
+		<form method="post">
+			<h1>Create a QR code for a new product</h1>
+			<p>Please complete the form below</p>
+			<div class="form-group">
+
+				<label="name">Product Name: </label>
+				<input type="text" class="form-control" name="name">
+
+				<label="category">Product category: </label>
+				<input type="text" class="form-control" name="category">
+
+				<label="brand">Product brand: </label>
+				<input type="text" class="form-control" name="brand">
+
+				<div class="form-group">
+				  <label="supermarket" >Product's supermarket:</label>
+				  <select name="supermarket" class="form-control" >
+				    <option> Fourchette </option>
+				    <option> N1 </option>
+				    <option> Greenhills </option>
+				    <option> Metro </option>
+				  </select>
+				</div>
+
+				<label="description">Product description: </label>
+				<input type="text" class="form-control" name="description">
+
+				<label="price">Product price: </label>
+				<input type="text" class="form-control" name="price" placeholder="ex: 22; 22.99">
+
+			</div>
+			
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+	</dir>
+</div> 

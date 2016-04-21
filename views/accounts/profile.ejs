@@ -20,15 +20,17 @@
 	        <thead>
 	        <tr>
 	          <th>Item's Name</th>
+	          <th>Brand</th>
 	          <th>Paid: </th>
-	          <th>Category </th>
+	          <th>Supermarket </th>
 	        </tr>
 	        <tbody>
 	          <% for(var i = 0; i < user.history.length; i++) {%>
 	            <tr>
 	              <td><%= user.history[i].item.name %></td>
+	              <td><%= user.history[i].item.brand %></td>
 	              <td><%= user.history[i].paid %></td>
-	              <td><%= (user.history[i].item.Category) %></td>
+	              <td><%= (user.history[i].item.supermarket) %></td>
 	            </tr>
 	          <% } %>
 	        </tbody>

@@ -27,8 +27,8 @@
 					<input type="hidden" name="product_id" id="quantity" value="<%= product._id  %>"></input>
 					<input type="hidden" name="price" id="priceHidden" value="<%= product.price  %>"></input>
 
-					
-					<p  type="text"> <%= product.description  %> </p>
+					<p  type="text"><b>Brand:</b> <%= product.brand  %> <b>Supermarket:</b> <%= product.supermarket %> </p>
+					<p  type="text"> <b>Description: </b><%= product.description  %> </p>
 					<input readonly type="text" name="priceValue" id="priceValue"  class="form-control" value="<%= product.price %>"></input>
 				</div>
 
