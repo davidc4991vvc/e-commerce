@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var flash = require('express-flash');
 var MongoStore = require('connect-mongo/es5')(session);
 var passport = require('passport');
-
+var QRCode = require('qrcode');
 
 var secret = require('./config/secret');
 var User = require('./models/user');
@@ -29,6 +29,7 @@ mongoose.connect(secret.database, function(err){
 });
 
 // Middleware
+
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.json()); 

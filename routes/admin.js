@@ -1,6 +1,10 @@
 var router = require('express').Router();
 var Category = require('../models/category');
-var QRCode = require('qrcode');
+
+
+
+
+
 
 
 router.get('/add-category', function(req, res, next){
@@ -23,6 +27,7 @@ router.get('/qr', function(req, res, next){
 	res.render('admin/qr', { message: req.flash('success') });
 });
 
+
 router.post('/qr', function(req, res, next){
 	// var category = new Category();
 	var product = {
@@ -33,20 +38,24 @@ router.post('/qr', function(req, res, next){
 			description: String,
 			price: Number
 	};
+
 	product.name = req.body.name;
 	product.category = req.body.category;
 	product.brand = req.body.brand;
 	product.supermarket = req.body.supermarket;
 	product.description = req.body.description;
 	product.price = req.body.price;
-	console.log(product);
+
 
 	res.writeHead(200, { 'Content-Type': 'text/html' });
-	var jungleBook = "The moonlight was blocked out of the mouth of the cave, for Shere Khan's\n"
+
 	QRCode.toDataURL(JSON.stringify(product),function(err,url){
 		if(err) console.log('error: '+err);
 		res.end("<!DOCTYPE html/><html><head><title>node-qrcode</title></head><body><div style='margin: auto; width: 60%; border: 3px solid #73AD21; padding: 10px;'><p>The following QR code contains the data below, please double check the data before printing this image!</p><img src='"+url+"'/><br>"+JSON.stringify(product)+"</div></body></html>");
 	});
+
+
+
 });
 
 

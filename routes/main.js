@@ -155,6 +155,14 @@ router.get('/product/:id', function(req, res, next){
 	});
 });
 
+router.get('/product_ios/:id', function(req, res, next){
+	Product.findById({ _id: req.params.id }, function(err, product){
+		if (err) return next(err);
+		res.setHeader('Content-Type', 'application/json');
+    	res.send(product);
+	});
+});
+
 router.post('/payment', function(req,res,next){
 	var stripeToken = req.body.stripeToken;
 	var currentCharges = Math.round(req.body.stripeMoney * 100);
