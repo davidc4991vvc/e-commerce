@@ -146,6 +146,18 @@ router.get('/products/:id', function(req, res, next){
 	});
 }); 
   
+//for ios application (returns a json object)
+router.get('/products_ios/:id', function(req, res, next){
+	Product
+	.find({ category: req.params.id })
+	.populate('category')
+	.exec(function(err, products){
+		if(err) return next(err);
+		res.setHeader('Content-Type', 'application/json');
+    	res.send(JSON.stringify(products));
+	});
+}); 
+
 router.get('/product/:id', function(req, res, next){
 	Product.findById({ _id: req.params.id }, function(err, product){
 		if (err) return next(err);
@@ -155,6 +167,7 @@ router.get('/product/:id', function(req, res, next){
 	});
 });
 
+//for ios application (returns a json object)
 router.get('/product_ios/:id', function(req, res, next){
 	Product.findById({ _id: req.params.id }, function(err, product){
 		if (err) return next(err);
