@@ -1,6 +1,6 @@
 var router = require('express').Router();
 var Category = require('../models/category');
-
+var QRCode = require('qrcode');
 
 
 

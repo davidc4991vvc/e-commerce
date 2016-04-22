@@ -9,7 +9,7 @@ var cookieParser = require('cookie-parser');
 var flash = require('express-flash');
 var MongoStore = require('connect-mongo/es5')(session);
 var passport = require('passport');
-var QRCode = require('qrcode');
+
 
 var secret = require('./config/secret');
 var User = require('./models/user');
