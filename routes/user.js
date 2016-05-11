@@ -25,6 +25,26 @@ router.get('/profile', passportConf.isAuthenticated, function(req, res, next) {
 	      	res.render('accounts/profile', { user: foundUser });
 	    });
 });
+
+router.post('/login_ios',  passport.authenticate('local-login', {
+	successRedirect: '/profile_ios',
+	failureRedirect: '/login_ios',
+	failureFlash: true
+}));
+
+router.get('/profile_ios', passportConf.isAuthenticated, function(req, res, next) {
+	User
+	    .findOne({ _id: req.user._id })
+	    .populate('history.item')
+	    .exec(function(err, foundUser) {
+	    	if (err) return next(err);
+	      	// res.render('accounts/profile', { user: foundUser });
+	      	
+	      	res.setHeader('Content-Type', 'application/json');
+    		res.send(JSON.stringify(foundUser));
+	    });
+});
+
  
 router.get('/signup', function(req, res, next){
 	res.render('accounts/signup', {

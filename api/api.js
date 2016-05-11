@@ -31,8 +31,6 @@ router.post('/:name', function(req, res, next){
 			});
 		},
 
-
-
 		function(category, callback){
 				var product = new Product();
 				product.category  = category._id;
