@@ -177,6 +177,8 @@ router.get('/product_ios/:id', function(req, res, next){
 });
 
 router.post('/payment', function(req,res,next){
+	console.log(req.body);
+	console.log(req.user);
 	var stripeToken = req.body.stripeToken;
 	var currentCharges = Math.round(req.body.stripeMoney * 100);
 	stripe.customers.create({
