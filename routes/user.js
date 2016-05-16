@@ -39,7 +39,6 @@ router.get('/profile_ios', passportConf.isAuthenticated, function(req, res, next
 	    .exec(function(err, foundUser) {
 	    	if (err) return next(err);
 	      	// res.render('accounts/profile', { user: foundUser });
-	      	
 	      	res.setHeader('Content-Type', 'application/json');
     		res.send(JSON.stringify(foundUser));
 	    });
