@@ -103,7 +103,9 @@ router.post('/cart_ios', function(req, res, next){
 		cart.total = (cart.total + parseFloat(req.body.priceValue)).toFixed(2);
 		cart.save(function(err){
 			if(err) return next(err);
-			return res.redirect('/cart');
+			return 						
+			res.setHeader('Content-Type', 'application/json');
+    		res.send("Success");
 		});
 	});
 });
