@@ -222,49 +222,51 @@ router.post('/payment', function(req,res,next){
 });
 
 router.post('/payment_ios', function(req,res,next){
-	var stripeToken = req.body.stripeToken;
-	var currentCharges = Math.round(req.body.stripeMoney * 100);
-	stripe.customers.create({
-		source: stripeToken,
-	}).then(function(customer) {
-		return stripe.charges.create({
-		  amount: currentCharges,
-		  currency: 'usd',
-		  customer: customer.id
-		});
-	}).then(function(charge){
-		async.waterfall([
-			function(callback){
-				Cart.findOne({ owner: req.body.description}, function(err, cart){
-					callback(err, cart);
-				});
-			},
-			function(cart, callback){
-				User.findOne({ _id: req.body.description}, function(err, user){
-					if(user) {
-						for (var i = 0; i < cart.items.length; i++){
-							user.history.push({
-								item: cart.items[i].item,
-								paid: cart.items[i].price
-							});
-						}
-						user.save(function(err, user){
-							if (err) return next(err);
-							callback(err, user);
-						});
-					}
-				});
-			},
-			function(user){
-				Cart.update({ owner: req.body.description }, { $set: { items: [], total: 0 }}, function(err, updated){
-					if(updated) {
-						res.setHeader('Content-Type', 'application/json');
-    					res.send("Success");
-					}
-				});
-			}
-		]);
-	})
+	console.log(req.body);
+	console.log(req.user);
+	// var stripeToken = req.body.stripeToken;
+	// var currentCharges = Math.round(req.body.stripeMoney * 100);
+	// stripe.customers.create({
+	// 	source: stripeToken,
+	// }).then(function(customer) {
+	// 	return stripe.charges.create({
+	// 	  amount: currentCharges,
+	// 	  currency: 'usd',
+	// 	  customer: customer.id
+	// 	});
+	// }).then(function(charge){
+	// 	async.waterfall([
+	// 		function(callback){
+	// 			Cart.findOne({ owner: req.body.description}, function(err, cart){
+	// 				callback(err, cart);
+	// 			});
+	// 		},
+	// 		function(cart, callback){
+	// 			User.findOne({ _id: req.body.description}, function(err, user){
+	// 				if(user) {
+	// 					for (var i = 0; i < cart.items.length; i++){
+	// 						user.history.push({
+	// 							item: cart.items[i].item,
+	// 							paid: cart.items[i].price
+	// 						});
+	// 					}
+	// 					user.save(function(err, user){
+	// 						if (err) return next(err);
+	// 						callback(err, user);
+	// 					});
+	// 				}
+	// 			});
+	// 		},
+	// 		function(user){
+	// 			Cart.update({ owner: req.body.description }, { $set: { items: [], total: 0 }}, function(err, updated){
+	// 				if(updated) {
+	// 					res.setHeader('Content-Type', 'application/json');
+ //    					res.send("Success");
+	// 				}
+	// 			});
+	// 		}
+	// 	]);
+	// })
 });
 
 module.exports = router;
