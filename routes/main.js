@@ -82,6 +82,18 @@ router.post('/product/:product_id', function(req, res, next){
 	});
 });
 
+router.get('/cart_ios', function(req, res, next){
+	Cart
+		.findOne({ owner: req.user._id })
+		.populate('items.item')
+		.exec(function(err, foundCart){
+			if (err) return next(err);
+			res.setHeader('Content-Type', 'application/json');
+    		res.send(JSON.stringify(foundCart));
+		});
+});
+
+
 router.post('/remove', function(req, res, next) {
 	Cart.findOne({ owner: req.user._id },  function(err, foundCart){
 		foundCart.items.pull(String(req.body.item));
