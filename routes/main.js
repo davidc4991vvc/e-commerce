@@ -120,7 +120,7 @@ router.post('/remove', function(req, res, next) {
 			req.flash('remove', 'Successfully removed');
 			res.redirect('/cart');
 		});
-		console.log(req.body)
+		// console.log(req.body)
 	});
 });
 

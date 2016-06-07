@@ -66,6 +66,7 @@ router.post('/qr', function(req, res, next){
 				product.supermarket = req.body.supermarket;
 				product.price = req.body.price;
 				product.description = req.body.description;
+				product.image = "http://46.101.104.55:3000/images/default.jpg";
 				product.save();
 		res.writeHead(200, { 'Content-Type': 'text/html' });
 
