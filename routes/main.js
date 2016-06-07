@@ -120,6 +120,7 @@ router.post('/remove', function(req, res, next) {
 			req.flash('remove', 'Successfully removed');
 			res.redirect('/cart');
 		});
+		console.log(req.body)
 	});
 });
 
@@ -161,7 +162,7 @@ router.get('/about', function(req, res){
 	res.render('main/about');
 });
 
-
+//for web application (returns a page rendered)
 router.get('/products/:id', function(req, res, next){
 	Product
 	.find({ category: req.params.id })
