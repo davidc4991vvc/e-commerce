@@ -1,9 +1,9 @@
 ========
 
-Thesis **Sales Management System** presented at the
+Project **Sales Management System** presented at the
 Technical  University of Moldova, was written in english by Cristian
 Cartofeanu as a Bachelor project. It contains 66 pages and includes 23
-figures, 14 references. The thesis consists of a list of figures, list
+figures, 14 references. The project consists of a list of figures, list
 of abbreviations, introduction, four chapters, conclusions and reference
 list.
 
@@ -48,7 +48,7 @@ mobile application, using their credit card. Conveniently, the
 transactions processed through the Stripe payment gateway are displayed
 in real-time and can be performed from anywhere around the world on most
 of the existing devices. How the money are transferred to the retailers’
-financial pool is out of scope for this thesis, however it should be
+financial pool is out of scope for this project, however it should be
 fairly easy to arrange the capital flow in a business model. The
 standard cash payment is not neglected though. Should they choose this
 option, the consumers can generate a final QR code needed to finish
@@ -115,7 +115,7 @@ infrastructure of the supermarkets. Conceptually, all the products can
 be easily added into the system, assigned an unique QR label and placed
 on specific lanes in the supermarket to capture the public’s attention.
 
-The thesis is divided into four chapters. The first chapter describes
+The project is divided into four chapters. The first chapter describes
 the problem, overview of the market and over the system’s concept and
 the web application architecture. The second chapter covers the software
 design with UML diagrams. The third chapter describes the implementation
@@ -1147,11 +1147,11 @@ Online groceries still face obstacles, the top reason that consumers
 cited for why they have never bought groceries online was their
 preference to pick the food they want themselves. In other words, buying
 food, especially fresh products, remains a tactile, personal experience.
-The system described in this thesis solves this issues by allowing the
+The system described in this project solves this issues by allowing the
 customer to make shopping at the same time online but with the option of
 choosing products in live.
 
-The Sales Management System represents the thesis work outcome. It
+The Sales Management System represents the project work outcome. It
 supplies retailers necessary software services that augments the sales
 process and provides a modern way for the customers to check out. The
 platform composed of three key elements that in combination represents a
@@ -1160,7 +1160,7 @@ application which is designed for Apple’s Iphone devices. The second one
 is the server side of the system that provides API that handles the main
 logic parts of the platform. And the third one is the web interface that
 acts as a dashboard for the user. There the customer can monitor their
-activity. The thesis outcome represents an obvious benefit for Moldova’s
+activity. The project outcome represents an obvious benefit for Moldova’s
 economy and taking into account that the product has no relevant
 competitors on the market, it should be economically feasible to
 integrate it quickly and efficiently.
